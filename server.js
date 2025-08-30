@@ -8,7 +8,7 @@ app.use(morgan('dev'));
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('The server is running!');
+  res.render('home.ejs');
 });
 
 app.listen(PORT, () => {
