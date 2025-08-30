@@ -8,7 +8,22 @@ app.use(morgan('dev'));
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.render('home.ejs');
+  const val = true;
+  res.render('home.ejs', {
+    msg: 'Welcome to the home page',
+    val,
+    num: 10,
+    player: {
+      name: 'Bob',
+    },
+    inventory: [
+      { name: 'Candle', qty: 4 },
+      { name: 'Cheese', qty: 10 },
+      { name: 'Phone', qty: 1 },
+      { name: 'Tent', qty: 0 },
+      { name: 'Torch', qty: 5 },
+    ],
+  });
 });
 
 app.listen(PORT, () => {

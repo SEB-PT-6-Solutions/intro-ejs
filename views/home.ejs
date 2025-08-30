@@ -6,6 +6,24 @@
   <title>Intro to EJS</title>
 </head>
 <body>
+
   <h1>Intro to EJS</h1>
+
+  <h2><%= msg %> <%= player.name %></h2>
+
+  <% if(val){ %>
+    <p>this will show when true</p>
+  <% }else{ %>
+    <p>this will show when false</p>
+  <% } %>
+
+  <p>2 plus 2 is <%= 2 + 2 %></p>
+  <p>My fav number is <%= num %> </p>
+
+  <ul>
+    <% inventory.forEach((item) => { %>
+      <li><%= item.name %>: <%= item.qty %></li>
+    <% }) %>
+  </ul>
 </body>
 </html>
