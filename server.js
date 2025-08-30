@@ -1,5 +1,14 @@
+/* eslint-disable prefer-destructuring */
 const express = require('express');
 const morgan = require('morgan');
+
+const inventory = [
+  { name: 'Candle', qty: 4 },
+  { name: 'Cheese', qty: 10 },
+  { name: 'Phone', qty: 1 },
+  { name: 'Tent', qty: 0 },
+  { name: 'Torch', qty: 5 },
+];
 
 const PORT = 3000;
 const app = express();
@@ -16,14 +25,13 @@ app.get('/', (req, res) => {
     player: {
       name: 'Bob',
     },
-    inventory: [
-      { name: 'Candle', qty: 4 },
-      { name: 'Cheese', qty: 10 },
-      { name: 'Phone', qty: 1 },
-      { name: 'Tent', qty: 0 },
-      { name: 'Torch', qty: 5 },
-    ],
+    inventory,
   });
+});
+
+app.get('/:itemId', (req, res) => {
+  const itemId = req.params.itemId;
+  res.render('show.ejs', { item: inventory[itemId] });
 });
 
 app.listen(PORT, () => {

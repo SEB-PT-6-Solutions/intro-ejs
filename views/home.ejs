@@ -7,6 +7,14 @@
 </head>
 <body>
 
+  <nav>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </nav>
+
   <h1>Intro to EJS</h1>
 
   <h2><%= msg %> <%= player.name %></h2>
@@ -21,8 +29,10 @@
   <p>My fav number is <%= num %> </p>
 
   <ul>
-    <% inventory.forEach((item) => { %>
-      <li><%= item.name %>: <%= item.qty %></li>
+    <% inventory.forEach((item, index) => { %>
+      <a href="/<%= index %>">
+        <li><%= item.name %>: <%= item.qty %></li>
+      </a>
     <% }) %>
   </ul>
 </body>
